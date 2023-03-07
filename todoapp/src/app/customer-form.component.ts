@@ -6,16 +6,16 @@ import {FormControl, FormGroup } from "@angular/forms";
   template: `
     <form (ngSubmit)="onSubmit()" [formGroup]="form">
       <input
-        formControlName="text"
+        formControlName="fullName"
         type="text"
         name="fullName-text"
-        placeholder="Full Name"
+        placeholder="Nom complet"
       />
       <input
-        formControlName="text"
+        formControlName="email"
         type="text"
         name="email-text"
-        placeholder="E-mail"
+        placeholder="email"
       />
       <button>Ajouter</button>
     </form>
@@ -27,15 +27,17 @@ export class CustomerFormComponent {
   onAddFullName = new EventEmitter<string>();
   @Output()
   onAddEmail = new EventEmitter<string>();
-
   form = new FormGroup({
-    text: new FormControl()
+    fullName: new FormControl(),
+    email: new FormControl(),
   });
 
   onSubmit() {
-    this.onAddFullName.emit(this.form.value.text);
+    this.onAddFullName.emit(this.form.value.fullName);
+    this.onAddEmail.emit(this.form.value.email)
     this.form.setValue({
-      text: ''
+      fullName : '',
+      email: ''
     });
   }
 }

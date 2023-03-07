@@ -1,10 +1,14 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {ReactiveFormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
 
 import { AppComponent } from './app.component';
 import {CustomersComponent} from "./customers.component";
 import {CustomerFormComponent} from "./customer-form.component";
+import {CustomersService} from "./api/customers.service";
+import {InvoicesService} from "./api/invoices.service";
+
 
 
 @NgModule({
@@ -15,9 +19,10 @@ import {CustomerFormComponent} from "./customer-form.component";
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [CustomersService, InvoicesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
