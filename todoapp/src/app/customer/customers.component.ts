@@ -1,5 +1,5 @@
 import { Component, Input } from "@angular/core";
-import {Customers} from "./types/customers";
+import {Customers} from "../types/customers";
 
 @Component({
   selector: 'app-customers',
@@ -16,12 +16,12 @@ import {Customers} from "./types/customers";
       <tr *ngFor="let item of customers">
         <td>
           <label>
-          Nom : {{ item.fullName }}
+            {{ item.fullName }}
           </label>
         </td>
         <td>
           <label>
-            Mail : {{item.email}}
+            {{item.email}}
           </label>
         </td>
         <td>

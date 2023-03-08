@@ -7,11 +7,10 @@ import {CustomersService} from "../api/customers.service";
   selector: 'app-customer-details-page',
   template: `
     <ng-container *ngIf="customer">
-      <h2>{{ customer.fullName }}</h2>
-      <strong>Mail : </strong>
-      {{ customer.email}}
-      <br />
-      <a routerLink="/">Retour aux tâches</a>
+      <h2>Fiche de {{ customer.fullName }}</h2>
+      <br>
+      <h3>{{ customer.email}}</h3>
+      <a routerLink="/">Retour aux clients</a>
     </ng-container>
 
     <p *ngIf="!customer">En cours de chargement</p>

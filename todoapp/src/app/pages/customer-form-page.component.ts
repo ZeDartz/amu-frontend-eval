@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { CustomersService } from "../api/customers.service";
 import { Customers } from "../types/customers";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-customer-list-page",
@@ -12,18 +13,13 @@ import { Customers } from "../types/customers";
 export class CustomerFormPageComponent {
   customers: Customers = [];
 
-  constructor(private service: CustomersService) { }
-
-  ngOnInit() {
-    this.service.
-    findAllCustomers()
-      .subscribe((customers) => this.customers = customers)
-  }
+  constructor(private service: CustomersService, private router: Router) { }
 
   addCustomer(object : any) {
     let fullName = object.fullName;
     let email = object.email;
     this.service.createCustomer(fullName, email)
       .subscribe((customers) => this.customers.push(customers[0]));
+    this.router.navigate(['/']);
   }
 }

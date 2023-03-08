@@ -12,12 +12,15 @@ import {FormControl, FormGroup } from "@angular/forms";
         name="fullName-text"
         placeholder="Nom complet"
       />
+      <br>
       <input
         formControlName="email"
         type="text"
         name="email-text"
         placeholder="email"
       />
+      <br>
+      <br>
       <button>Enregistrer</button>
     </form>
   `

@@ -8,7 +8,6 @@ import { Customers } from "../types/customers";
     <app-customers
       [customers]="customers"
     ></app-customers>
-    <app-customer-form (onAddFullName)="addCustomer($event)"></app-customer-form>
     `
 })
 
@@ -17,19 +16,10 @@ export class CustomerListPageComponent {
 
   constructor(private service: CustomersService) { }
 
-  fullName: string = '';
-  email: string = '';
 
   ngOnInit() {
     this.service.
     findAllCustomers()
       .subscribe((customers) => this.customers = customers)
-  }
-
-  addCustomer(object : any) {
-    this.fullName = object.fullName;
-    this.email = object.email;
-    this.service.createCustomer(this.fullName, this.email)
-      .subscribe((customers) => this.customers.push(customers[0]));
   }
 }
