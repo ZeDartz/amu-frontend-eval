@@ -5,20 +5,14 @@ import { Customers } from "../types/customers";
 @Component({
   selector: "app-customer-list-page",
   template: `
-    <app-customers
-      [customers]="customers"
-    ></app-customers>
     <app-customer-form (onAddFullName)="addCustomer($event)"></app-customer-form>
     `
 })
 
-export class CustomerListPageComponent {
+export class CustomerFormPageComponent {
   customers: Customers = [];
 
   constructor(private service: CustomersService) { }
-
-  fullName: string = '';
-  email: string = '';
 
   ngOnInit() {
     this.service.
@@ -27,9 +21,9 @@ export class CustomerListPageComponent {
   }
 
   addCustomer(object : any) {
-    this.fullName = object.fullName;
-    this.email = object.email;
-    this.service.createCustomer(this.fullName, this.email)
+    let fullName = object.fullName;
+    let email = object.email;
+    this.service.createCustomer(fullName, email)
       .subscribe((customers) => this.customers.push(customers[0]));
   }
 }

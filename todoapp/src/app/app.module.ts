@@ -11,10 +11,12 @@ import {InvoicesService} from "./api/invoices.service";
 import {CustomerListPageComponent} from "./pages/customer-list-page.component";
 import {CustomerDetailsPageComponent} from "./pages/customer-details-page.component";
 import {RouterModule, Routes} from "@angular/router";
+import {CustomerFormPageComponent} from "./pages/customer-form-page.component";
 
 const routes: Routes = [
   { path: '', component: CustomerListPageComponent },
-  { path: ':id/details', component: CustomerDetailsPageComponent }
+  { path: 'create', component: CustomerFormComponent },
+  { path: ':id', component: CustomerDetailsPageComponent }
 ]
 
 @NgModule({
@@ -22,6 +24,7 @@ const routes: Routes = [
     AppComponent,
     CustomersComponent,
     CustomerFormComponent,
+    CustomerFormPageComponent,
     CustomerListPageComponent,
     CustomerDetailsPageComponent
   ],

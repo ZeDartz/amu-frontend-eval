@@ -4,6 +4,7 @@ import {FormControl, FormGroup } from "@angular/forms";
 @Component({
   selector: "app-customer-form",
   template: `
+    <h1>Créer un client</h1>
     <form (ngSubmit)="onSubmit()" [formGroup]="form">
       <input
         formControlName="fullName"
@@ -17,7 +18,7 @@ import {FormControl, FormGroup } from "@angular/forms";
         name="email-text"
         placeholder="email"
       />
-      <button>Ajouter</button>
+      <button>Enregistrer</button>
     </form>
   `
 })
@@ -25,8 +26,6 @@ export class CustomerFormComponent {
 
   @Output()
   onAddFullName = new EventEmitter<any>();
-  //@Output()
-  //onAddEmail = new EventEmitter<string>();
   form = new FormGroup({
     fullName: new FormControl(),
     email: new FormControl(),
@@ -34,7 +33,6 @@ export class CustomerFormComponent {
 
   onSubmit() {
     this.onAddFullName.emit({fullName : this.form.value.fullName, email:this.form.value.email});
-    //this.onAddEmail.emit(this.form.value.email)
     this.form.setValue({
       fullName : '',
       email: ''

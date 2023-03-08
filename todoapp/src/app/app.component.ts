@@ -4,14 +4,12 @@ import { Component } from '@angular/core';
   selector: 'app-root',
   template: `
     <div id="app">
-      <h1>La Todo App</h1>
-
+      <h1>Bienvenue sur la Factur'App</h1>
       <main>
         <router-outlet></router-outlet>
       </main>
     </div>
-  `,
-  styles: []
+  `
 })
 export class AppComponent {
 }
