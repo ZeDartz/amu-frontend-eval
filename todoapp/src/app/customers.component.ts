@@ -11,6 +11,7 @@ import {Customers} from "./types/customers";
           <br>
           Mail : {{item.email}}
         </label>
+        <a routerLink="/{{ item.id }}/details">Details</a>
       </li>
     </ul>
     `

@@ -24,17 +24,17 @@ import {FormControl, FormGroup } from "@angular/forms";
 export class CustomerFormComponent {
 
   @Output()
-  onAddFullName = new EventEmitter<string>();
-  @Output()
-  onAddEmail = new EventEmitter<string>();
+  onAddFullName = new EventEmitter<any>();
+  //@Output()
+  //onAddEmail = new EventEmitter<string>();
   form = new FormGroup({
     fullName: new FormControl(),
     email: new FormControl(),
   });
 
   onSubmit() {
-    this.onAddFullName.emit(this.form.value.fullName);
-    this.onAddEmail.emit(this.form.value.email)
+    this.onAddFullName.emit({fullName : this.form.value.fullName, email:this.form.value.email});
+    //this.onAddEmail.emit(this.form.value.email)
     this.form.setValue({
       fullName : '',
       email: ''
