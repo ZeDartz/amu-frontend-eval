@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 
 import { AppComponent } from './app.component';
@@ -12,12 +12,15 @@ import {CustomerListPageComponent} from "./pages/customer-list-page.component";
 import {CustomerDetailsPageComponent} from "./pages/customer-details-page.component";
 import {RouterModule, Routes} from "@angular/router";
 import {CustomerFormPageComponent} from "./pages/customer-form-page.component";
+import {InvoicesListComponent} from "./invoice/invoices-list.component";
+import {InvoiceFormPageComponent} from "./pages/invoice-form-page.component";
+import {InvoiceFormComponent} from "./invoice/invoice-form.component";
 
 const routes: Routes = [
   { path: '', component: CustomerListPageComponent },
   { path: 'create', component: CustomerFormPageComponent },
   { path: ':id', component: CustomerDetailsPageComponent },
-  //{ path: ':id/invoices/add', component: InvoicesFormPageComponent }
+  { path: ':id/invoices/add', component: InvoiceFormPageComponent }
 ]
 
 @NgModule({
@@ -27,12 +30,16 @@ const routes: Routes = [
     CustomerFormComponent,
     CustomerFormPageComponent,
     CustomerListPageComponent,
-    CustomerDetailsPageComponent
+    CustomerDetailsPageComponent,
+    InvoicesListComponent,
+    InvoiceFormComponent,
+    InvoiceFormPageComponent
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     HttpClientModule,
+    FormsModule,
     RouterModule.forRoot(routes)
   ],
   providers: [CustomersService, InvoicesService],

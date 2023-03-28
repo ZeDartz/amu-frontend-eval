@@ -8,20 +8,9 @@ import {API_KEY, API_URL_INV} from "./codes";
 export class InvoicesService {
 
   constructor(private http: HttpClient) { }
-  findAllInvoices(): Observable<Invoices> {
-    return this.http.get<Invoices>(API_URL_INV, {
-      headers: {
-        "Content-Type": "application/json",
-        apiKey: API_KEY
-      }
-    });
-  }
 
-  createInvoice(amount: number, isPaid: boolean): Observable<Invoices> {
-    return this.http.post<Invoices>(API_URL_INV, {
-      amount: amount,
-      isPaid: isPaid
-    }, {
+  findInvoiceFromCustomer(custid: number): Observable<Invoices> {
+    return this.http.get<Invoices>(API_URL_INV + '?custid=eq.' + custid, {
       headers: {
         "Content-Type": "application/json",
         apiKey: API_KEY,
@@ -30,9 +19,11 @@ export class InvoicesService {
     });
   }
 
-  togglePaidInvoice(id: number, isPaid: boolean): Observable<Invoices> {
-    return this.http.patch<Invoices>(API_URL_INV + '?id=eq.' + id, {
-      isPaid: isPaid
+  createInvoice(amount: number, status: boolean, custid: number): Observable<Invoices> {
+    return this.http.post<Invoices>(API_URL_INV, {
+      amount: amount,
+      status: status,
+      custid: custid
     }, {
       headers: {
         "Content-Type": "application/json",

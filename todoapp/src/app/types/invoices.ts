@@ -1,6 +1,6 @@
 export type Invoice = {
   id: number;
   amount: number;
-  isPaid: boolean;
+  status: boolean;
 }
 export type Invoices = Invoice[];

@@ -5,6 +5,9 @@ import {FormControl, FormGroup } from "@angular/forms";
   selector: "app-customer-form",
   template: `
     <h1>Créer un client</h1>
+    <br>
+    <a routerLink="/">retour au menu</a>
+    <br>
     <form (ngSubmit)="onSubmit()" [formGroup]="form">
       <input
         formControlName="fullName"

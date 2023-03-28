@@ -16,17 +16,12 @@ import {Customers} from "../types/customers";
       <tr *ngFor="let item of customers">
         <td>
           <label>
-            {{ item.fullName }}
+            <a routerLink="/{{ item.id }}">{{ item.fullName }}</a>
           </label>
         </td>
         <td>
           <label>
             {{item.email}}
-          </label>
-        </td>
-        <td>
-          <label>
-            <a routerLink="/{{ item.id }}">Details</a>
           </label>
         </td>
       </tr>
