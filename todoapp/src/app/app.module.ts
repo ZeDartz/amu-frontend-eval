@@ -8,12 +8,12 @@ import {CustomersComponent} from "./customer/customers.component";
 import {CustomerFormComponent} from "./customer/customer-form.component";
 import {CustomersService} from "./api/customers.service";
 import {InvoicesService} from "./api/invoices.service";
-import {CustomerListPageComponent} from "./pages/customer-list-page.component";
-import {CustomerDetailsPageComponent} from "./pages/customer-details-page.component";
+import {CustomerListPageComponent} from "./customer/pages/customer-list-page.component";
+import {CustomerDetailsPageComponent} from "./customer/pages/customer-details-page.component";
 import {RouterModule, Routes} from "@angular/router";
-import {CustomerFormPageComponent} from "./pages/customer-form-page.component";
+import {CustomerFormPageComponent} from "./customer/pages/customer-form-page.component";
 import {InvoicesListComponent} from "./invoice/invoices-list.component";
-import {InvoiceFormPageComponent} from "./pages/invoice-form-page.component";
+import {InvoiceFormPageComponent} from "./invoice/pages/invoice-form-page.component";
 import {InvoiceFormComponent} from "./invoice/invoice-form.component";
 
 const routes: Routes = [

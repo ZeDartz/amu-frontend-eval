@@ -7,22 +7,23 @@ import {ActivatedRoute} from "@angular/router";
   template: `
     <h1>Créer une facture</h1>
     <br>
-    <a routerLink="/">retour au menu</a>
+    <a routerLink="/"><button type="button" class="btn btn-primary">Retour au menu</button></a>
     <br>
-    <form (ngSubmit)="onSubmit()" [formGroup]="form">
-      <input
-        formControlName="amount"
-        type="text"
-        name="amount-text"
-        placeholder="Montant de la facture"
-      />
+    <form style="padding-top: 20px" (ngSubmit)="onSubmit()" [formGroup]="form">
+        <input
+          formControlName="amount"
+          type="text"
+          class="form-control"
+          name="amount-text"
+          placeholder="Montant de la facture"
+        />
       <br>
-      <select [formControl]="status">
+      <select class="form-select" [formControl]="status">
         <option *ngFor="let stat  of objectStatus" [value]="stat.value">{{stat.value}}</option>
       </select>
       <br>
       <br>
-      <button>Enregistrer la facture</button>
+      <button type="button" class="btn btn-primary">Enregistrer la facture</button>
     </form>
   `
 })

@@ -6,12 +6,13 @@ import {FormControl, FormGroup } from "@angular/forms";
   template: `
     <h1>Créer un client</h1>
     <br>
-    <a routerLink="/">retour au menu</a>
+    <a routerLink="/"><button type="button" class="btn btn-primary">Retour au menu</button></a>
     <br>
-    <form (ngSubmit)="onSubmit()" [formGroup]="form">
+    <form style="padding-top: 20px" (ngSubmit)="onSubmit()" [formGroup]="form">
       <input
         formControlName="fullName"
         type="text"
+        class="form-control"
         name="fullName-text"
         placeholder="Nom complet"
       />
@@ -19,12 +20,13 @@ import {FormControl, FormGroup } from "@angular/forms";
       <input
         formControlName="email"
         type="text"
+        class="form-control"
         name="email-text"
         placeholder="email"
       />
       <br>
       <br>
-      <button>Enregistrer</button>
+      <button type="button" class="btn btn-primary">Enregistrer le client</button>
     </form>
   `
 })

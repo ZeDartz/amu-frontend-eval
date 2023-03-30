@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
-import {Customer} from "../types/customers";
-import {CustomersService} from "../api/customers.service";
+import {Customer} from "../../models/customers";
+import {CustomersService} from "../../api/customers.service";
 
 @Component({
   selector: 'app-customer-details-page',
@@ -10,7 +10,7 @@ import {CustomersService} from "../api/customers.service";
       <h2>Fiche de {{ customer.fullName }}</h2>
       <br>
       <h3>{{ customer.email}}</h3>
-      <a routerLink="/">Retour aux clients</a>
+      <a routerLink="/"><button type="button" class="btn btn-primary">Retour aux client</button></a>
     </ng-container>
     <p *ngIf="!customer">En cours de chargement</p>
     <app-invoices-list [custid]="custid"></app-invoices-list>

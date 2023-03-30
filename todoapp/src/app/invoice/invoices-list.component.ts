@@ -1,28 +1,41 @@
 import { Component, Input } from "@angular/core";
-import {Invoices} from "../types/invoices";
+import {Invoices} from "../models/invoices";
 import {ActivatedRoute} from "@angular/router";
 import {InvoicesService} from "../api/invoices.service";
-import {Customer} from "../types/customers";
+import {Customer} from "../models/customers";
 
 @Component({
   selector: 'app-invoices-list',
   template: `
-    <div>
-      <div *ngFor="let item of invoices">
-        <label>
-          {{ item.amount }}
-        </label>
-        <label *ngIf="item.status">
-          Payée
-        </label>
-        <label *ngIf="!item.status">
-          Envoyée
-        </label>
-      </div>
+    <div style="padding-top: 20px" class="centered-element">
+      <table class="table">
+        <thead>
+        <tr>
+          <th colspan="3">Liste des factures</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of invoices">
+          <td>
+            <label>
+              {{ item.amount }}
+            </label>
+          </td>
+          <td>
+            <label *ngIf="item.status">
+              Payée
+            </label>
+            <label *ngIf="!item.status">
+              Envoyée
+            </label>
+          </td>
+        </tr>
+        </tbody>
+      </table>
     </div>
-    <a routerLink="/{{custid}}/invoices/add">Créer une facture</a>
+    <a routerLink="/{{custid}}/invoices/add"><button type="button" class="btn btn-primary">Créer une facture</button></a>
     `,
-  styles:[]
+  styles: ['table,td {padding:15px; border: 1px solid #333;}thead,tfoot {background-color: #333;color: #fff;}']
 })
 export class InvoicesListComponent {
   @Input()

@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import { Router } from "@angular/router";
-import {Invoices} from "../types/invoices";
-import {InvoicesService} from "../api/invoices.service";
+import {Invoices} from "../../models/invoices";
+import {InvoicesService} from "../../api/invoices.service";
 
 @Component({
   selector: "app-invoice-list-page",

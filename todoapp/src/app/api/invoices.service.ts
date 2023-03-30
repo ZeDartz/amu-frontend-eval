@@ -1,8 +1,8 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { Invoices } from "../types/invoices";
-import {API_KEY, API_URL_INV} from "./codes";
+import { Invoices } from "../models/invoices";
+import {API_KEY, API_URL_INV} from "./http-urls";
 
 @Injectable()
 export class InvoicesService {
