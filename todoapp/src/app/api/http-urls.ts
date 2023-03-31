@@ -1,3 +1,4 @@
+export const API_URL = "https://ovgrwbpfjdvxssvzmxxq.supabase.co/";
 export const API_URL_CUST = "https://ovgrwbpfjdvxssvzmxxq.supabase.co/rest/v1/customers";
 export const API_URL_INV = "https://ovgrwbpfjdvxssvzmxxq.supabase.co/rest/v1/invoices";
 export const API_KEY =

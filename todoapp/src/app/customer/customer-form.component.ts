@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from "@angular/core";
-import {FormControl, FormGroup } from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: "app-customer-form",
@@ -13,20 +13,22 @@ import {FormControl, FormGroup } from "@angular/forms";
         formControlName="fullName"
         type="text"
         class="form-control"
-        name="fullName-text"
+        name="fullName"
         placeholder="Nom complet"
       />
+      <span style="color: red" *ngIf="fullName && fullName.invalid && fullName.touched">Nom invalide</span>
       <br>
       <input
         formControlName="email"
-        type="text"
+        type="email"
         class="form-control"
-        name="email-text"
+        name="email"
         placeholder="email"
       />
+      <span style="color: red" *ngIf="email && email.invalid && email.touched">Mail invalide</span>
       <br>
       <br>
-      <button type="button" class="btn btn-primary">Enregistrer le client</button>
+      <button [disabled]="form.invalid" type="submit" class="btn btn-primary">Enregistrer</button>
     </form>
   `
 })
@@ -35,10 +37,15 @@ export class CustomerFormComponent {
   @Output()
   onAddFullName = new EventEmitter<any>();
   form = new FormGroup({
-    fullName: new FormControl(),
-    email: new FormControl(),
+    fullName: new FormControl('',[Validators.required,Validators.minLength(3)]),
+    email: new FormControl('',[Validators.required, Validators.email]),
   });
-
+  get fullName(){
+    return this.form.get('fullName')
+  }
+  get email(){
+    return this.form.get('email')
+  }
   onSubmit() {
     this.onAddFullName.emit({fullName : this.form.value.fullName, email:this.form.value.email});
     this.form.setValue({

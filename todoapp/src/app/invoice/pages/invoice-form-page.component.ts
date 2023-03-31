@@ -20,6 +20,6 @@ export class InvoiceFormPageComponent {
     let custid = object.custid;
     this.service.createInvoice(amount, status, custid)
       .subscribe((invoices) => this.invoices.push(invoices[0]));
-    this.router.navigate(['/']);
+    this.router.navigate(['/'+custid]);
   }
 }

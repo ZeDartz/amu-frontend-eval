@@ -1,6 +1,6 @@
 /// <reference types="Cypress" />
 
-import { API_URL, API_KEY, BASE_URL, resetDatabase } from "../utils";
+import { BASE_URL, resetDatabase } from "../utils";
 
 // Les fonctionnalités attendues pour les clients (customers)
 describe("Customers Features", () => {

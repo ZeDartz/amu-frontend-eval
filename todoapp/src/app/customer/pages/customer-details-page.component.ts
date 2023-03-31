@@ -10,7 +10,7 @@ import {CustomersService} from "../../api/customers.service";
       <h2>Fiche de {{ customer.fullName }}</h2>
       <br>
       <h3>{{ customer.email}}</h3>
-      <a routerLink="/"><button type="button" class="btn btn-primary">Retour aux client</button></a>
+      <a routerLink="/"><button type="button" class="btn btn-primary">Retour aux clients</button></a>
     </ng-container>
     <p *ngIf="!customer">En cours de chargement</p>
     <app-invoices-list [custid]="custid"></app-invoices-list>
